@@ -21,12 +21,10 @@ jobs:
 
       - name: Install backend dependencies
         run: |
-          cd backend
           pip install -r requirements.txt
 
       - name: Backend import check
         run: |
-          cd backend
           python -c "import main"
 
       # ---------- Frontend ----------
