@@ -6,7 +6,9 @@ from sqlalchemy.orm import Session
 
 app = FastAPI()
 
-database_models.Base.metadata.create_all(bind=engine)
+@app.on_event("startup")
+def startup():
+    database_models.Base.metadata.create_all(bind=engine)
 
 products = [
     Product(id=1, name="Phone", description="Mobile Phone", price=195.90, quantity=5), 
